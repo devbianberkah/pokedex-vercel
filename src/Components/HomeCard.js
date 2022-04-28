@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import PokeCard from "./PokeCard";
 import PokeDetail from "./PokeDetail";
 
+
 export default function HomeCard(){
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,6 +16,7 @@ export default function HomeCard(){
             (result) => {
                 setIsLoaded(true);
                 setItems(result.results);
+                // console.log(pokeId)
             },
             (error) => {
             setIsLoaded(true);

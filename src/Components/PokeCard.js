@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import PokeImageRenderer from "./PokeImageRenderer";
 
 export default function PokeCard(pokemon){
+// detail utama
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [item, setItems] = useState()
 
+//  gambar
   let imageUrl = "";
   const [img, setImg] = useState();
 
@@ -40,17 +41,23 @@ export default function PokeCard(pokemon){
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
+        // console.log(item);
+        // const types = item.types(tipe=>{
+        //     return  <li className="pokemon-type bg bg--grass">tipe.type.name</li>
+        // })
        return (
             <li className="grid-item">
             <a href="">
             </a>
             <div className="pokemon-box bg-light bg-light--grass">
-               {/* <img className="pokemon-box__img" src="" /> */}
-                   {/* {typeof item.sprites !== 'undefined' ? <div>ada</div> : <div>Tidak ada</div>} */}
-                        {/* <img className="pokemon-box__img" src={item.sprites.other['official-artwork'].front_default}/> */}
-                        <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
-                     <p className="pokemon-box__number">001</p>
-                <h2 className="pokemon-box__name">{pokemon.detail.name}</h2>
+              <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
+              <p className="pokemon-box__number">001</p>
+               <h2 className="pokemon-box__name">{pokemon.detail.name}</h2>
+               <div className="pokemon-box__types">
+                    <ul className="pokemon-types">
+                       {/* {types} */}
+                    </ul>
+               </div>
             </div>
             </li>
         );

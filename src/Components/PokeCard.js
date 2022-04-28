@@ -43,7 +43,7 @@ export default function PokeCard(pokemon){
         return <div>Loading...</div>;
     } else {
       const { name,types,id } = item;
-        console.log(types && types[0]);
+        // console.log(types && types[0]);
         // const types = item.types(tipe=>{
         //     return  <li className="pokemon-type bg bg--grass">tipe.type.name</li>
         // })

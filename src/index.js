@@ -4,13 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { register as registerServiceWorker } from './serviceWorkerRegistration';
-import Offline from './Offline/Offline';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Offline>
       <App />
-    </Offline>
   </React.StrictMode>,
   document.getElementById('root')
 );

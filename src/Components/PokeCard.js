@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function PokeCard(pokemon){
 // detail utama
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [item, setItems] = useState()
+  const [item, setItems] = useState([])
 
 //  gambar
   let imageUrl = "";
@@ -41,25 +42,32 @@ export default function PokeCard(pokemon){
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
-        // console.log(item);
+      const { name,types,id } = item;
+        console.log(types && types[0]);
         // const types = item.types(tipe=>{
         //     return  <li className="pokemon-type bg bg--grass">tipe.type.name</li>
         // })
        return (
+        <Link to={`/pokemon/${pokemon.detail.name}`}>
             <li className="grid-item">
-            <a href="">
-            </a>
-            <div className="pokemon-box bg-light bg-light--grass">
-              <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
-              <p className="pokemon-box__number">001</p>
-               <h2 className="pokemon-box__name">{pokemon.detail.name}</h2>
-               <div className="pokemon-box__types">
-                    <ul className="pokemon-types">
-                       {/* {types} */}
-                    </ul>
-               </div>
-            </div>
-            </li>
+              <div className={`pokemon-box bg-light bg-light--${types && types[0].type.name}`}>
+                <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
+                <p className="pokemon-box__number">{id}</p>
+                <h2 className="pokemon-box__name">{name}</h2>
+                <div className="pokemon-box__types">
+                      <ul className="pokemon-types">
+                        {item.types && item.types.map((type)=>{
+                           return (
+                            <li className={`pokemon-type bg bg--${type.type.name}`} >
+                              {type.type.name}
+                            </li>
+                          )
+                        })}
+                      </ul>
+                </div>
+              </div>
+              </li>
+            </Link>
         );
     }
 }

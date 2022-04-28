@@ -31,9 +31,9 @@ export default function HomeCard(){
         return <div>Loading...</div>;
     } else {
         // console.log(items);
-        const pokeList = items.map(item=>{
+        const pokeList = items.map((item,index)=>{
             return <PokeCard 
-                key={item.index}
+                key={index}
                 detail={item}
             />
         })

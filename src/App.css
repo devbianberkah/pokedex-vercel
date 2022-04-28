@@ -226,7 +226,7 @@
   border-radius: var(--border-radius-xl);
 }
 .pokemon-box__img {
-  width: 100%;
+  width: 65%;
   align-self: center;
   margin-bottom: var(--spacing-1);
 }

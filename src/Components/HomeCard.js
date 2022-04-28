@@ -5,7 +5,7 @@ import PokeCard from "./PokeCard";
 import PokeDetail from "./PokeDetail";
 
 export default function HomeCard(){
- const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
     useEffect(() => {
@@ -28,9 +28,10 @@ export default function HomeCard(){
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
+        // console.log(items);
         const pokeList = items.map(item=>{
             return <PokeCard 
-                key={item.id}
+                key={item.index}
                 detail={item}
             />
         })

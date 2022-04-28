@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,1286 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.header {
+  max-width: var(--screen-sm);
+  margin: var(--spacing-0) auto;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  z-index: 1;
 }
+.header,
+.header__left {
+  display: flex;
+  align-items: center;
+}
+.header__left {
+  flex: 1 1;
+}
+.header__right {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+.button {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  font-size: var(--font-size-sm);
+}
+.button-icon {
+  color: var(--color-black);
+  position: relative;
+}
+.button-icon[data-count]:not([data-count="0"]):before {
+  content: attr(data-count);
+  position: absolute;
+  top: var(--spacing-1);
+  right: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  border-radius: var(--border-radius-full);
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+.button-cta,
+.button-icon[data-count]:not([data-count="0"]):before {
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-cta {
+  border-radius: var(--border-radius-xl);
+}
+.button-cta > svg {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+.button-cta > :last-child {
+  margin-left: var(--spacing-2);
+}
+.button-block {
+  width: 100%;
+}
+.label-check {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-0);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid var(--color-grey-400);
+  position: relative;
+  padding: var(--spacing-1) var(--spacing-4);
+  margin-bottom: var(--spacing-2);
+  display: flex;
+  align-items: center;
+}
+.label-check:not(:last-child) {
+  margin-right: var(--spacing-2);
+}
+.label-check--active {
+  border-color: var(--color-blue-500);
+  color: var(--color-blue-700);
+  font-weight: var(--font-weight-bold);
+}
+.label-check .label-check__icon {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+  margin-right: var(--spacing-2);
+}
+.label-check > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.0001;
+}
+.label-check:hover > input {
+  cursor: pointer;
+}
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  color: var(--color-black);
+}
+.modal--active {
+  display: block;
+}
+.modal-content {
+  max-width: var(--screen-sm);
+  min-height: calc(100vh - 48px);
+  margin: var(--spacing-0) auto;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+}
+.modal-content__section {
+  padding: var(--spacing-3) var(--spacing-6);
+}
+.modal-content__subtitle {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-4);
+}
+.modal-footer {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  flex: none;
+  padding: var(--spacing-4) var(--spacing-6);
+  background-color: var(--color-white);
+  max-width: var(--screen-sm);
+  margin: var(--spacing-0) auto;
+}
+.compare-panel,
+.filter-types {
+  display: flex;
+  flex-wrap: wrap;
+}
+.compare-panel {
+  position: -webkit-sticky;
+  position: sticky;
+  align-items: center;
+  left: 0;
+  bottom: var(--spacing-4);
+  background-color: var(--color-white);
+  z-index: 5;
+  padding: var(--spacing-2) var(--spacing-6);
+  border-radius: var(--border-radius-xl);
+  margin: 0 var(--spacing-8);
+  box-shadow: 2px 4px 15px 0 rgba(0, 0, 0, 0.25);
+}
+.compare-panel-thumbs {
+  flex: 1 1;
+  display: flex;
+}
+.compare-panel-thumbs > * {
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  margin-right: var(--spacing-2);
+}
+.pokemon-types {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pokemon-type {
+  flex: none;
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-none);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-1) var(--spacing-2);
+}
+.pokemon-type:not(:last-child) {
+  margin-right: var(--spacing-1);
+}
+.pokemon-box {
+  padding: var(--spacing-3) var(--spacing-0);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--border-radius-xl);
+}
+.pokemon-box__img {
+  width: 100%;
+  align-self: center;
+  margin-bottom: var(--spacing-1);
+}
+
+.pokemon-box__name,
+.pokemon-box__number {
+  line-height: var(--line-height-none);
+  padding: var(--spacing-0) var(--spacing-3);
+  margin-bottom: var(--spacing-2);
+}
+.pokemon-box__name {
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+}
+.pokemon-box__types {
+  padding: var(--spacing-0) var(--spacing-3);
+}
+.tabs-list {
+  display: inline-flex;
+  position: relative;
+  overflow-y: auto;
+}
+.tabs-list:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 0;
+}
+.tabs-list__item {
+  flex: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-grey-500);
+  padding: var(--spacing-2) var(--spacing-0) var(--spacing-4);
+  margin-right: var(--spacing-4);
+  position: relative;
+}
+.tabs-list__item:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 0;
+}
+.tabs-list__item--active {
+  color: var(--color-black);
+}
+.tabs-list__item--active:before {
+  background-color: var(--color-blue-600);
+}
+.tab-panel {
+  padding-top: var(--spacing-4);
+  display: none;
+}
+.tab-panel--active {
+  display: block;
+}
+:root {
+  --font-family: "Poppins";
+  --color-black: #22292f;
+  --color-white: #fff;
+  --color-grey-50: #fffefe;
+  --color-grey-100: #f7fafc;
+  --color-grey-200: #edf2f7;
+  --color-grey-300: #e2e8f0;
+  --color-grey-400: #cbd5e0;
+  --color-grey-500: #a0aec0;
+  --color-grey-600: #718096;
+  --color-grey-700: #4a5568;
+  --color-grey-800: #2d3748;
+  --color-grey-900: #1a202c;
+  --color-red-100: #fff5f5;
+  --color-red-200: #fed7d7;
+  --color-red-300: #feb2b2;
+  --color-red-400: #fc8181;
+  --color-red-500: #f56565;
+  --color-red-600: #e53e3e;
+  --color-red-700: #c53030;
+  --color-red-800: #9b2c2c;
+  --color-red-900: #742a2a;
+  --color-orange-100: #fffaf0;
+  --color-orange-200: #feebc8;
+  --color-orange-300: #fbd38d;
+  --color-orange-400: #f6ad55;
+  --color-orange-500: #ed8936;
+  --color-orange-600: #dd6b20;
+  --color-orange-700: #c05621;
+  --color-orange-800: #9c4221;
+  --color-orange-900: #7b341e;
+  --color-yellow-100: ivory;
+  --color-yellow-200: #fefcbf;
+  --color-yellow-300: #faf089;
+  --color-yellow-400: #f6e05e;
+  --color-yellow-500: #ecc94b;
+  --color-yellow-600: #d69e2e;
+  --color-yellow-700: #b7791f;
+  --color-yellow-800: #975a16;
+  --color-yellow-900: #744210;
+  --color-green-100: #f0fff4;
+  --color-green-200: #c6f6d5;
+  --color-green-300: #9ae6b4;
+  --color-green-400: #68d391;
+  --color-green-500: #48bb78;
+  --color-green-600: #38a169;
+  --color-green-700: #2f855a;
+  --color-green-800: #276749;
+  --color-green-900: #22543d;
+  --color-teal-100: #e6fffa;
+  --color-teal-200: #b2f5ea;
+  --color-teal-300: #81e6d9;
+  --color-teal-400: #4fd1c5;
+  --color-teal-500: #38b2ac;
+  --color-teal-600: #319795;
+  --color-teal-700: #2c7a7b;
+  --color-teal-800: #285e61;
+  --color-teal-900: #234e52;
+  --color-blue-100: #ebf8ff;
+  --color-blue-200: #bee3f8;
+  --color-blue-300: #90cdf4;
+  --color-blue-400: #63b3ed;
+  --color-blue-500: #4299e1;
+  --color-blue-600: #3182ce;
+  --color-blue-700: #2b6cb0;
+  --color-blue-800: #2c5282;
+  --color-blue-900: #2a4365;
+  --color-indigo-100: #ebf4ff;
+  --color-indigo-200: #c3dafe;
+  --color-indigo-300: #a3bffa;
+  --color-indigo-400: #7f9cf5;
+  --color-indigo-500: #667eea;
+  --color-indigo-600: #5a67d8;
+  --color-indigo-700: #4c51bf;
+  --color-indigo-800: #434190;
+  --color-indigo-900: #3c366b;
+  --color-purple-100: #faf5ff;
+  --color-purple-200: #e9d8fd;
+  --color-purple-300: #d6bcfa;
+  --color-purple-400: #b794f4;
+  --color-purple-500: #9f7aea;
+  --color-purple-600: #805ad5;
+  --color-purple-700: #6b46c1;
+  --color-purple-800: #553c9a;
+  --color-purple-900: #44337a;
+  --color-pink-100: #fff5f7;
+  --color-pink-200: #fed7e2;
+  --color-pink-300: #fbb6ce;
+  --color-pink-400: #f687b3;
+  --color-pink-500: #ed64a6;
+  --color-pink-600: #d53f8c;
+  --color-pink-700: #b83280;
+  --color-pink-800: #97266d;
+  --color-pink-900: #702459;
+  --color-pokemon-ghost: #65539d;
+  --color-pokemon-steel: #908da9;
+  --color-pokemon-dragon: #3b3bbb;
+  --color-pokemon-flying: #7a9ff2;
+  --color-pokemon-water: #3a8be9;
+  --color-pokemon-ice: #3a8be9;
+  --color-pokemon-unknown: #255147;
+  --color-pokemon-grass: #4fb443;
+  --color-pokemon-bug: #889e2a;
+  --color-pokemon-normal: #afa485;
+  --color-pokemon-electric: #f4c234;
+  --color-pokemon-ground: #b7904b;
+  --color-pokemon-rock: #b7904b;
+  --color-pokemon-fire: #e76b2f;
+  --color-pokemon-fighting: #9b4840;
+  --color-pokemon-dark: #5e4c4c;
+  --color-pokemon-psychic: #f5779e;
+  --color-pokemon-fairy: #f9a8ef;
+  --color-pokemon-poison: #a15ab1;
+  --color-bg-pokemon-ghost: #cbc1e8;
+  --color-bg-pokemon-steel: #d9d7e5;
+  --color-bg-pokemon-dragon: #b9b9fc;
+  --color-bg-pokemon-flying: #cbdeff;
+  --color-bg-pokemon-water: #afd9ff;
+  --color-bg-pokemon-ice: #afd9ff;
+  --color-bg-pokemon-unknown: #255147;
+  --color-bg-pokemon-grass: #b5eaaf;
+  --color-bg-pokemon-bug: #d4dfa7;
+  --color-bg-pokemon-normal: #e4e0cf;
+  --color-bg-pokemon-electric: #ffe9a7;
+  --color-bg-pokemon-ground: #ecd8b4;
+  --color-bg-pokemon-rock: #ecd8b4;
+  --color-bg-pokemon-fire: #ffc8a9;
+  --color-bg-pokemon-fighting: #e7bdb8;
+  --color-bg-pokemon-dark: #c9c0c0;
+  --color-bg-pokemon-psychic: #ffcbde;
+  --color-bg-pokemon-fairy: #fdf;
+  --color-bg-pokemon-poison: #e6c2ef;
+  --font-size-2xs: 0.714rem;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 4rem;
+  --font-weight-hairline: 100;
+  --font-weight-thin: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --spacing-0: 0;
+  --spacing-1: 0.2rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-40: 10rem;
+  --spacing-48: 12rem;
+  --spacing-56: 14rem;
+  --spacing-64: 16rem;
+  --border-radius-none: 0;
+  --border-radius-sm: 0.125rem;
+  --border-radius-default: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 1.25rem;
+  --border-radius-full: 9999px;
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  --screen-xs: 480px;
+  --screen-sm: 576px;
+  --screen-md: 756px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1336px;
+}
+html {
+  font-size: 16px;
+}
+.page {
+  font-family: "Poppins";
+  font-family: var(--font-family);
+  background-color: #fff;
+  background-color: var(--color-white);
+  color: #22292f;
+  color: var(--color-black);
+  max-width: 576px;
+  max-width: var(--screen-sm);
+  margin: 0 auto;
+  margin: var(--spacing-0) auto;
+}
+.page-title {
+  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  padding: 0 1.5rem;
+  padding: var(--spacing-0) var(--spacing-6);
+  text-transform: capitalize;
+}
+.page-content {
+  padding: 1rem 1.5rem;
+  padding: var(--spacing-4) var(--spacing-6);
+}
+.page-detail {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Poppins";
+  font-family: var(--font-family);
+  background-color: #fff;
+  background-color: var(--color-white);
+  color: #22292f;
+  color: var(--color-black);
+  max-width: 576px;
+  max-width: var(--screen-sm);
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  margin: var(--spacing-0) auto;
+}
+.page-detail__title {
+  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  padding: 0 1.5rem;
+  padding: var(--spacing-0) var(--spacing-6);
+  text-transform: capitalize;
+  position: relative;
+  transform-origin: top left;
+}
+.page-detail__title h1 {
+  display: inline-block;
+}
+.page-detail__subtitle {
+  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  padding: 0 1.5rem;
+  padding: var(--spacing-0) var(--spacing-6);
+}
+.page-detail__types {
+  padding: 0.5rem 1.5rem;
+  padding: var(--spacing-2) var(--spacing-6);
+}
+.page-detail__img {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  padding: var(--spacing-0) var(--spacing-6);
+  position: relative;
+}
+.page-detail__img img {
+  width: 65%;
+}
+.page-detail__panel {
+  --top: 48px;
+  position: fixed !important;
+  top: var(--top);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 576px;
+  max-width: var(--screen-sm);
+  height: calc(100vh - var(--top));
+  padding-top: 75%;
+  overflow-y: scroll;
+}
+.panel {
+  background-color: #fff;
+  background-color: var(--color-white);
+  border-top-left-radius: 1.25rem;
+  border-top-left-radius: var(--border-radius-xl);
+  border-top-right-radius: 1.25rem;
+  border-top-right-radius: var(--border-radius-xl);
+  padding: 1.5rem;
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-6);
+  min-height: calc(100vh - var(--top));
+  box-shadow: 2px 4px 15px 0 rgba(0, 0, 0, 0.25);
+}
+.panel-subtitle {
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-2);
+}
+.page-compare {
+  font-family: "Poppins";
+  font-family: var(--font-family);
+  background-color: #fff;
+  background-color: var(--color-white);
+  color: #22292f;
+  color: var(--color-black);
+  max-width: 576px;
+  max-width: var(--screen-sm);
+  margin: 0 auto;
+  margin: var(--spacing-0) auto;
+  padding: 0.75rem 1.5rem;
+  padding: var(--spacing-3) var(--spacing-6);
+}
+.page-compare__summaries {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-column-gap: var(--spacing-4);
+  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-6);
+}
+.page-compare__section {
+  padding: 1rem;
+  padding: var(--spacing-4);
+  border-radius: 1.25rem;
+  border-radius: var(--border-radius-xl);
+  box-shadow: 2px 4px 15px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  background-color: var(--color-white);
+  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-8);
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+}
+.page-compare__subtitle {
+  font-size: 1rem;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
+}
+.compare-table {
+  width: 100%;
+}
+.compare-table td:first-child {
+  width: 75px;
+  color: #4a5568;
+  color: var(--color-grey-700);
+}
+.gender {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.gender-item {
+  margin-right: 1rem;
+  margin-right: var(--spacing-4);
+}
+.gender__icon {
+  font-size: 1rem;
+  font-size: var(--font-size-base);
+  margin-right: 0.2rem;
+  margin-right: var(--spacing-1);
+}
+.gender__icon--male {
+  color: #3182ce;
+  color: var(--color-blue-600);
+}
+.gender__icon--female {
+  color: #d53f8c;
+  color: var(--color-pink-600);
+}
+.gender__value {
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+}
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.summary-title {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-2);
+}
+.summary-img {
+  max-width: 10rem;
+  max-width: var(--spacing-40);
+  width: 100%;
+}
+.stats-compare {
+  position: relative;
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+}
+.stats-compare__label {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0;
+  padding: var(--spacing-1) 0;
+}
+.stats-compare__name {
+  flex: 1 1;
+  text-align: center;
+  color: #4a5568;
+  color: var(--color-grey-700);
+}
+.stats-compare__value {
+  flex: none;
+  width: 2rem;
+  width: var(--spacing-8);
+}
+.stats-compare__value:last-child {
+  text-align: right;
+}
+.stats-compare__bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.75rem;
+  grid-column-gap: var(--spacing-3);
+}
+.stats-compare__bar {
+  width: 100%;
+  background-color: #cbd5e0;
+  background-color: var(--color-grey-400);
+  position: relative;
+}
+.stats-compare__bar,
+.stats-compare__bar__value {
+  height: 0.5rem;
+  height: var(--spacing-2);
+  border-radius: 0.5rem;
+  border-radius: var(--border-radius-lg);
+}
+.stats-compare__bar__value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #3182ce;
+  background-color: var(--color-blue-600);
+}
+.stats-compare__bar:first-child .stats-compare__bar__value {
+  left: unset;
+  right: 0;
+}
+.list {
+  display: grid;
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+  grid-template-columns: 6rem 1fr;
+  grid-template-columns: var(--spacing-24) 1fr;
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
+}
+.list--small {
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-columns: var(--spacing-10) 1fr;
+}
+.list-label {
+  color: #718096;
+  color: var(--color-grey-600);
+}
+.list-label,
+.list-value {
+  padding: 0.5rem 0;
+  padding: var(--spacing-2) 0;
+}
+.list-value {
+  color: #22292f;
+  color: var(--color-black);
+}
+.bg-light {
+  background-color: #255147;
+  background-color: var(--color-bg-pokemon-unknown);
+}
+.bg-light--ghost {
+  background-color: #cbc1e8;
+  background-color: var(--color-bg-pokemon-ghost);
+}
+.bg-light--steel {
+  background-color: #d9d7e5;
+  background-color: var(--color-bg-pokemon-steel);
+}
+.bg-light--dragon {
+  background-color: #b9b9fc;
+  background-color: var(--color-bg-pokemon-dragon);
+}
+.bg-light--flying {
+  background-color: #cbdeff;
+  background-color: var(--color-bg-pokemon-flying);
+}
+.bg-light--water {
+  background-color: #afd9ff;
+  background-color: var(--color-bg-pokemon-water);
+}
+.bg-light--ice {
+  background-color: #afd9ff;
+  background-color: var(--color-bg-pokemon-ice);
+}
+.bg-light--grass {
+  background-color: #b5eaaf;
+  background-color: var(--color-bg-pokemon-grass);
+}
+.bg-light--bug {
+  background-color: #d4dfa7;
+  background-color: var(--color-bg-pokemon-bug);
+}
+.bg-light--normal {
+  background-color: #e4e0cf;
+  background-color: var(--color-bg-pokemon-normal);
+}
+.bg-light--electric {
+  background-color: #ffe9a7;
+  background-color: var(--color-bg-pokemon-electric);
+}
+.bg-light--ground {
+  background-color: #ecd8b4;
+  background-color: var(--color-bg-pokemon-ground);
+}
+.bg-light--rock {
+  background-color: #ecd8b4;
+  background-color: var(--color-bg-pokemon-rock);
+}
+.bg-light--fire {
+  background-color: #ffc8a9;
+  background-color: var(--color-bg-pokemon-fire);
+}
+.bg-light--fighting {
+  background-color: #e7bdb8;
+  background-color: var(--color-bg-pokemon-fighting);
+}
+.bg-light--dark {
+  background-color: #c9c0c0;
+  background-color: var(--color-bg-pokemon-dark);
+}
+.bg-light--psychic {
+  background-color: #ffcbde;
+  background-color: var(--color-bg-pokemon-psychic);
+}
+.bg-light--fairy {
+  background-color: #fdf;
+  background-color: var(--color-bg-pokemon-fairy);
+}
+.bg-light--poison {
+  background-color: #e6c2ef;
+  background-color: var(--color-bg-pokemon-poison);
+}
+.bg {
+  background-color: #22292f;
+  background-color: var(--color-black);
+  color: #fff;
+  color: var(--color-white);
+}
+.bg--ghost {
+  background-color: #65539d;
+  background-color: var(--color-pokemon-ghost);
+}
+.bg--steel {
+  background-color: #908da9;
+  background-color: var(--color-pokemon-steel);
+}
+.bg--dragon {
+  background-color: #3b3bbb;
+  background-color: var(--color-pokemon-dragon);
+}
+.bg--flying {
+  background-color: #7a9ff2;
+  background-color: var(--color-pokemon-flying);
+}
+.bg--water {
+  background-color: #3a8be9;
+  background-color: var(--color-pokemon-water);
+}
+.bg--ice {
+  background-color: #3a8be9;
+  background-color: var(--color-pokemon-ice);
+}
+.bg--grass {
+  background-color: #4fb443;
+  background-color: var(--color-pokemon-grass);
+}
+.bg--bug {
+  background-color: #889e2a;
+  background-color: var(--color-pokemon-bug);
+}
+.bg--normal {
+  background-color: #afa485;
+  background-color: var(--color-pokemon-normal);
+}
+.bg--electric {
+  background-color: #f4c234;
+  background-color: var(--color-pokemon-electric);
+}
+.bg--ground {
+  background-color: #b7904b;
+  background-color: var(--color-pokemon-ground);
+}
+.bg--rock {
+  background-color: #b7904b;
+  background-color: var(--color-pokemon-rock);
+}
+.bg--fire {
+  background-color: #e76b2f;
+  background-color: var(--color-pokemon-fire);
+}
+.bg--fighting {
+  background-color: #9b4840;
+  background-color: var(--color-pokemon-fighting);
+}
+.bg--dark {
+  background-color: #5e4c4c;
+  background-color: var(--color-pokemon-dark);
+}
+.bg--psychic {
+  background-color: #f5779e;
+  background-color: var(--color-pokemon-psychic);
+}
+.bg--fairy {
+  background-color: #f9a8ef;
+  background-color: var(--color-pokemon-fairy);
+}
+.bg--poison {
+  background-color: #a15ab1;
+  background-color: var(--color-pokemon-poison);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.75rem;
+  grid-column-gap: var(--spacing-3);
+  grid-row-gap: 0.75rem;
+  grid-row-gap: var(--spacing-3);
+}
+.grid-item {
+  position: relative;
+}
+.grid-item > a {
+  width: 100%;
+}
+.grid-item .check {
+  position: absolute;
+  top: 0.5rem;
+  top: var(--spacing-2);
+  right: 0.5rem;
+  right: var(--spacing-2);
+  z-index: 2;
+}
+.grid-item.shimmer {
+  min-height: 200px;
+  animation: a-background-move 1.5s infinite;
+  background-image: linear-gradient(90deg, #f7f7f7, #dcdcdc, #f7f7f7);
+  background-size: 200%;
+  border-radius: 1.25rem;
+  border-radius: var(--border-radius-xl);
+}
+@keyframes a-background-move {
+  0% {
+    background-position: 100%;
+  }
+  to {
+    background-position: -100%;
+  }
+}
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.pokemon-desc {
+  margin-bottom: 0.75rem;
+  margin-bottom: var(--spacing-3);
+}
+.pokemon-desc,
+.statbar {
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+}
+.statbar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
+}
+.statbar > :first-child {
+  display: flex;
+  margin-bottom: 0.2rem;
+  margin-bottom: var(--spacing-1);
+}
+.statbar__label {
+  flex: 1 1;
+  margin-right: 0.5rem;
+  margin-right: var(--spacing-2);
+  color: #4a5568;
+  color: var(--color-grey-700);
+}
+.statbar__value {
+  flex: none;
+}
+.statbar__bar {
+  width: 100%;
+  background-color: #cbd5e0;
+  background-color: var(--color-grey-400);
+  position: relative;
+}
+.statbar__bar,
+.statbar__bar__value {
+  height: 0.5rem;
+  height: var(--spacing-2);
+  border-radius: 0.5rem;
+  border-radius: var(--border-radius-lg);
+}
+.statbar__bar__value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #3182ce;
+  background-color: var(--color-blue-600);
+}
+.ev {
+  display: block;
+  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
+}
+.ev__img {
+  display: flex;
+  flex-direction: column;
+}
+.ev-desc {
+  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-2);
+}
+.ev-chain {
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr;
+  align-items: center;
+  grid-column-gap: 1rem;
+  grid-column-gap: var(--spacing-4);
+  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-6);
+}
+.ev-chain__species {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1.25rem;
+  border-radius: var(--border-radius-xl);
+  padding: 0.5rem 1rem;
+  padding: var(--spacing-2) var(--spacing-4);
+}
+.ev-chain__species--active {
+  background-color: #edf2f7;
+  background-color: var(--color-grey-200);
+}
+.ev-chain__species__name {
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+  padding: var(--spacing-2) 0;
+}
+.spinner {
+  border-radius: 50%;
+  border: 4px solid #f3f3f3;
+  border-top-color: #3498db;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/*! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
+
+/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+:root {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+hr {
+  height: 0;
+  color: inherit;
+}
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+    monospace;
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+table {
+  text-indent: 0;
+  border-color: inherit;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+}
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+legend {
+  padding: 0;
+}
+progress {
+  vertical-align: baseline;
+}
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+summary {
+  display: list-item;
+}
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+button {
+  background-color: transparent;
+  background-image: none;
+}
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+fieldset,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+html {
+  font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  line-height: 1.5;
+}
+body {
+  font-family: inherit;
+  line-height: inherit;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+hr {
+  border-top-width: 1px;
+}
+img {
+  border-style: solid;
+}
+textarea {
+  resize: vertical;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+[role="button"],
+button {
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+  vertical-align: middle;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=main.2e9c56f9.chunk.css.map */

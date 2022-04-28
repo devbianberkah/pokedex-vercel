@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { serialConverter } from "../Services/PokemonServices";
+import { serialConverter } from "../Helper/StringHelper";
 
 export default function PokeCard(pokemon){
 // detail utama
@@ -52,20 +52,32 @@ export default function PokeCard(pokemon){
         <Link to={`/pokemon/${pokemon.detail.name}`}>
             <li className="grid-item">
               <div className={`pokemon-box bg-light bg-light--${types && types[0].type.name}`}>
-                <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
-                <p className="pokemon-box__number">#{serialConverter(id)}</p>
-                <h2 className="pokemon-box__name">{name}</h2>
-                <div className="pokemon-box__types">
-                      <ul className="pokemon-types">
-                        {item.types && item.types.map((type)=>{
-                           return (
-                            <li className={`pokemon-type bg bg--${type.type.name}`} >
-                              {type.type.name}
-                            </li>
-                          )
-                        })}
-                      </ul>
-                </div>
+                <ul className="pokemon-home-box-content">
+                  <li className="pokemon-home-box__img-container">
+                     <img className="pokemon-home-box__img" src={img} alt="icons" />
+                  </li>
+                  <li className="pokemon-home-box__detail-container">
+                    <ul className="pokemon-home-box-content">
+                      <li>
+                        <h1 className="pokemon-box__name">{name}</h1>
+                     </li>
+                      <li className="">
+                        <p className="pokemon-box-home__number">#{serialConverter(id)}</p>
+                      </li>
+                    </ul>
+                      <div className="pokemon-box__types">
+                            <ul className="pokemon-types">
+                              {item.types && item.types.map((type)=>{
+                                return (
+                                  <li className={`pokemon-type bg bg--${type.type.name}`} >
+                                    {type.type.name}
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                      </div>
+                  </li>
+                </ul>
               </div>
               </li>
             </Link>

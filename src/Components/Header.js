@@ -5,7 +5,7 @@ export default function Header(){
         <div className="header">
             <div className="header__left"></div>
             <div className="header-right">
-                <button className="button button-text">Filter</button>
+                {/* <button className="button button-text">Filter</button> */}
             </div>
         </div>
     )

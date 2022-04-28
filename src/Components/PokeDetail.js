@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { useEffect } from "react";
-import { getPokeDetailData, serialConverter } from "../Services/PokemonServices";
+import { getPokeDetailData } from "../Services/PokemonServices";
+import { serialConverter } from "../Helper/StringHelper";
 
 export default function PokeDetail(){
     const location = useLocation();
@@ -74,6 +75,7 @@ export default function PokeDetail(){
                           })}
                           <li>Height = {height}</li>
                           <li>Weight = {weight}</li>
+                          
                       </ul>
                 </div>
               </div>

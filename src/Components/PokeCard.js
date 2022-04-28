@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { serialConverter } from "../Services/PokemonServices";
 
 export default function PokeCard(pokemon){
 // detail utama
@@ -52,7 +53,7 @@ export default function PokeCard(pokemon){
             <li className="grid-item">
               <div className={`pokemon-box bg-light bg-light--${types && types[0].type.name}`}>
                 <img className="pokemon-box__img" src={img} alt="icons" width="90px" />
-                <p className="pokemon-box__number">{id}</p>
+                <p className="pokemon-box__number">#{serialConverter(id)}</p>
                 <h2 className="pokemon-box__name">{name}</h2>
                 <div className="pokemon-box__types">
                       <ul className="pokemon-types">

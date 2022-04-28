@@ -61,9 +61,16 @@ export default function HomeCard(){
             />
         })
         return (
-        <ul className="grid">
-            {pokeList}
-        </ul>
+            <main className='page'>
+                <h1 className='page-title'>Pokedex</h1>
+                 <span></span>
+                <div className='page-content'>
+                    <ul className="grid">
+                        {pokeList}
+                    </ul>
+                </div>
+          </main> 
+       
         );
     }
 }

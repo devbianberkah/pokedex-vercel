@@ -7,7 +7,6 @@ export default function PageContent(){
         <div>
           <Header/>
           <main className='page'>
-            <h1 className='page-title'>Pokedex</h1>
             <span></span>
             <div className='page-content'>
                 <HomeCard />

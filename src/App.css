@@ -7,7 +7,6 @@
 
 .App {
   /* max-width: 1080px; */
-  background: url('https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png');
   font-family: 'Poppins';
 }
 /*
@@ -218,8 +217,8 @@
 }
 .pokemon-type {
   flex: none;
-  font-size: var(--font-size-lg);
-  /* line-height: var(--line-height-none); */
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-none);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-2) var(--spacing-5);
 }
@@ -255,12 +254,40 @@
 }
 
 .pokemon-home-box__img {
-  width: 75%;
+  width: 90%;
+  margin: 0px 10px;
+  margin-bottom: var(--spacing-1);
+}
+
+.pokemon-box-home__number {
+  padding: var(--spacing-0) var(--spacing-3);
+  font-size: 20pt;
+  color: white;
+  position: absolute;
+  bottom: var(--spacing-2);
+  right: var(--spacing-3);
+}
+/* END CUSTOM HOME CARD */
+
+/* CUSTOM DETAIL CSS */
+
+.pokemon-detail-box__img {
+  width: 40%;
+  align-self: center;
   margin: 0px 30px;
   margin-bottom: var(--spacing-1);
 }
 
-/* END CUSTOM HOME CARD */
+.pokemon-detail-box__number {
+  padding: var(--spacing-0) var(--spacing-3);
+  font-size: 30pt;
+  color: white;
+  position: absolute;
+  top: var(--spacing-12);
+  right: var(--spacing-3);
+}
+
+/* END CUSTOM DETAIL CSS*/
 .pokemon-box__img {
   width: 50%;
   align-self: center;
@@ -272,17 +299,8 @@
   line-height: var(--line-height-none);
   /* padding: var(--spacing-0) var(--spacing-3); */
   margin-bottom: var(--spacing-2);
-  font-size: 30pt;
+  font-size: 25pt;
   color: white;
-}
-
-.pokemon-box-home__number {
-  padding: var(--spacing-0) var(--spacing-3);
-  font-size: 30pt;
-  color: white;
-  position: absolute;
-  bottom: var(--spacing-2);
-  right: var(--spacing-3);
 }
 
 .pokemon-box__name {
@@ -532,14 +550,15 @@ html {
   font-size: 16px;
 }
 .page {
+  border-radius: 15px;
   font-family: "Poppins";
   font-family: var(--font-family);
   background-color: #fff;
-  background-color: var(--color-white);
+  background-color: var(--color-grey-100);
   color: #22292f;
   color: var(--color-black);
   max-width: 576px;
-  max-width: var(--screen-md);
+  max-width: var(--screen-sm);
   margin: 0 auto;
   margin: var(--spacing-0) auto;
 }
@@ -557,18 +576,18 @@ html {
   padding: var(--spacing-4) var(--spacing-6);
 }
 .page-detail {
-  position: fixed !important;
+  /* position: fixed !important; */
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   font-family: "Poppins";
   font-family: var(--font-family);
   background-color: #fff;
   background-color: var(--color-white);
   color: #22292f;
   color: var(--color-black);
-  max-width: 576px;
-  max-width: var(--screen-md);
+  /* max-width: 576px; */
+  max-width: var(--screen-sm);
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -612,28 +631,24 @@ html {
   width: 65%;
 }
 .page-detail__panel {
-  --top: 48px;
-  position: fixed !important;
+  /* position: fixed !important; */
   top: var(--top);
-  left: 50%;
-  transform: translateX(-50%);
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   width: 100%;
-  max-width: 576px;
-  max-width: var(--screen-md);
-  height: calc(100vh - var(--top));
-  padding-top: 75%;
-  overflow-y: scroll;
+  /* max-width: 576px; */
+  /* max-width: var(--screen-md); */
+  /* padding-top: 75%; */
+  /* overflow-y: scroll; */
 }
 .panel {
   background-color: #fff;
   background-color: var(--color-white);
-  border-top-left-radius: 1.25rem;
-  border-top-left-radius: var(--border-radius-xl);
-  border-top-right-radius: 1.25rem;
-  border-top-right-radius: var(--border-radius-xl);
-  padding: 1.5rem;
+  border-radius: var(--border-radius-xl);
+  /* padding: 1.5rem; */
   padding: var(--spacing-6) var(--spacing-6) var(--spacing-6);
-  min-height: calc(100vh - var(--top));
+  min-height:100%;
+  margin: 10px;
   box-shadow: 2px 4px 15px 0 rgba(0, 0, 0, 0.25);
 }
 .panel-subtitle {
@@ -768,10 +783,35 @@ html {
 }
 .stats-compare__bars {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.75fr 0.2fr 1fr;
+  grid-column-gap: 0.75rem;
+  grid-column-gap: var(--spacing-2);
+  text-transform: capitalize;
+}
+
+.base-stats-compare__bars {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-column-gap: 0.75rem;
   grid-column-gap: var(--spacing-3);
 }
+.stats-title{
+  font-weight: 900;
+  font-size: 23px;
+  color: #4baf80;
+  align-items: center;
+}
+
+.size-item-label{
+  color: rgb(124, 122, 122);
+  font-weight: 400;
+    align-items: center;
+}
+
+.base-stats-value{
+  text-align: right;
+}
+
 .stats-compare__bar {
   width: 100%;
   background-color: #cbd5e0;
@@ -1265,6 +1305,9 @@ pre {
 button {
   background-color: transparent;
   background-image: none;
+}
+.button-white {
+  color: white;
 }
 button:focus {
   outline: 1px dotted;

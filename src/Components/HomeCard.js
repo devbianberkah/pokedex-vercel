@@ -10,8 +10,25 @@ export default function HomeCard(){
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  const [searchInput, setSearchInput] = useState('')
+  const [filteredResults, setFilteredResults] = useState([]);
   let offset = 0;
   const limit = 10;
+
+  const searchItems = (e) => {
+    setSearchInput(e.target.value)
+    if (searchInput !== '') {
+        const filteredData = items.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setFilteredResults(filteredData)
+    }
+    else{
+        setFilteredResults(items)
+    }
+    console.log("res ",filteredResults)
+   
+ }
 
   const loadMorePokemon = () => {
     console.log('offset ' ,offset);
@@ -62,6 +79,11 @@ export default function HomeCard(){
         })
         return (
             <main className='page'>
+                 {/* <input
+                    type="text"
+                    // value={this.state.searchValue}
+                    onChange={searchItems}
+                    /> */}
                 <h1 className='page-title'>Pokedex</h1>
                  <span></span>
                 <div className='page-content'>

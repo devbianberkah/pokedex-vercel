@@ -21,18 +21,6 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <Detector
-        render={({ online }) => (
-          <div className={online ? "normal" : "warning"}>
-            You are currently {online ? "online" : "offline"}
-          </div>
-        )}
-
-        onChange={({online}) => (
-          if ( online )
-            addDataIntoCache('MyCache','localhost:3000','Pokedex page')
-        )}
-      /> */}
       <Offline>
         <div>anda offline</div>
       </Offline>

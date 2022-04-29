@@ -563,8 +563,8 @@ html {
   margin: var(--spacing-0) auto;
 }
 .page-title {
-  font-size: 1.25rem;
-  font-size: var(--font-size-xl);
+  font-size: 3rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
   font-weight: var(--font-weight-bold);
   padding: 0 1.5rem;

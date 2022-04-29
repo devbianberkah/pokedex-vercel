@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getAllPokeData } from "../Services/PokemonServices";
 import PokeCard from "./PokeCard";
-import PokeDetail from "./PokeDetail";
-
+import {Offline,Online,Detector} from "react-detect-offline"
 
 export default function HomeCard(){
   const [error, setError] = useState(null);
@@ -85,12 +84,18 @@ export default function HomeCard(){
                     onChange={searchItems}
                     /> */}
                 <h1 className='page-title'>Pokedex</h1>
-                 <span></span>
+                <Online>
                 <div className='page-content'>
-                    <ul className="grid">
-                        {pokeList}
-                    </ul>
+                       <ul className="grid">
+                            {pokeList}
+                        </ul>
                 </div>
+                </Online>
+                <Offline>
+                        <div className="offline-stats">
+                            Koneksi Offline
+                        </div>
+                </Offline>
           </main> 
        
         );

@@ -9,6 +9,13 @@
   /* max-width: 1080px; */
   font-family: 'Poppins';
 }
+
+.offline-stats{
+   position: absolute;
+   top : 50%;
+   left : 42%;
+   font-size: 30px;
+}
 /*
 .App-logo {
   height: 40vmin;

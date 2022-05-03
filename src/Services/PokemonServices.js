@@ -7,3 +7,7 @@ export const getPokeDetailData = (pokemonName) => {
 export const getAllPokeData = (limit,offset) => {
     return fetch(`${URL}/pokemon?limit=${limit}&offset=${offset}`).then((response)=>response.json())
 };
+
+export const getAllType = () => {
+    return fetch(`${URL}/type`).then((response)=>response.json())
+};

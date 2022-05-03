@@ -167,11 +167,12 @@
 }
 .modal-content {
   max-width: var(--screen-md);
-  min-height: calc(100vh - 48px);
+  /* min-height: calc(50vh - 48px); */
   margin: var(--spacing-0) auto;
   background-color: var(--color-white);
   display: flex;
   flex-direction: column;
+  
 }
 .modal-content__section {
   padding: var(--spacing-3) var(--spacing-6);
@@ -1468,4 +1469,13 @@ video {
   .offline--visible {
     opacity: 1;
     pointer-events: unset;
+  }
+
+  .filter-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .filter-grid-item{
+    margin-right:7px;
   }

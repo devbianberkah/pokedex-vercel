@@ -11,3 +11,7 @@ export const getAllPokeData = (limit,offset) => {
 export const getAllType = () => {
     return fetch(`${URL}/type`).then((response)=>response.json())
 };
+
+export const getHomePokeDetailData = (fullurl) => {
+    return fetch(`${fullurl}`).then((response)=>response.json())
+}
